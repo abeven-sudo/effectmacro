@@ -1,7 +1,7 @@
 import { TRIGGERS } from "../../triggers.mjs";
 
 export default function init() {
-  if (game.system.id !== "dnd5e") return;
+  if (game.system.id !== "dnd4e") return;
 
   // Add D&D 5e system triggers - organized by category
   TRIGGERS.push(
