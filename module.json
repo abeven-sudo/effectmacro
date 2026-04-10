@@ -1,6 +1,6 @@
 {
   "id": "effectmacro",
-  "title": "Effect Macro",
+  "title": "Effect Macro - Fork",
   "version": "AUTOMATIC",
   "authors": [
     {
@@ -36,8 +36,8 @@
       "flags": {}
     }
   ],
-  "url": "https://github.com/krbz999/effectmacro",
-  "manifest": "https://github.com/krbz999/effectmacro/releases/latest/download/module.json",
+  "url": "https://github.com/abeven-sudo/effectmacro",
+  "manifest": "https://github.com/abeven-sudo/effectmacro/releases/latest/download/module.json",
   "download": "AUTOMATIC",
   "flags": {
     "hotReload": {

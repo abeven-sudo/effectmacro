@@ -1,7 +1,7 @@
 {
   "name": "effectmacro",
   "version": "1.0.0",
-  "description": "Effect Macro",
+  "description": "Effect Macro - Fork",
   "scripts": {
     "build": "rollup -c",
     "createSymlinks": "node ./tools/create-symlinks.mjs",

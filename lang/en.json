@@ -49,6 +49,14 @@
       "shortRest": "When a short rest is completed"
     },
 
+  "dnd4e": {
+      "4eTriggers": "4e Triggers",
+
+      "equipItem": "When item is equipped.",
+      "unequipItem": "When item is unequipped.",
+      "usePower": "When power is used"
+    },
+
     "DeletePrompt": "Delete this macro?",
     "MacroSheet": "Effect Macro: {name}",
 
