@@ -48,7 +48,7 @@ async function usePower(power, data) {
 //  const actor = data.subject?.item?.actor;
   const actor = game.actors.get(data.actor);
   if (!actor) return;
-  return _executeAppliedEffects(actor, "dnd4e.usePower", { rolls, data });
+  return _executeAppliedEffects(actor, "dnd4e.usePower", { power, data });
 }
 
 /* -------------------------------------------------- */
