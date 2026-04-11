@@ -62,7 +62,7 @@ async function usePower(power, data) {
  */
 async function equipItem(item, changed, action, id) {
   debugger;
-  //const actor = data.subject?.item?.actor;
+  const actor = action.parent;
   if (!changed.system?.equipped) return;
   return _executeAppliedEffects(actor, "updateItem", { item, changed, action, id });
 }
@@ -77,7 +77,7 @@ async function equipItem(item, changed, action, id) {
  */
 async function unequipItem(item, changed, action, id) {
   debugger;
-  //const actor = data.subject?.item?.actor;
+  const actor = action.parent;
   if (changed.system?.equipped) return;
   return _executeAppliedEffects(actor, "updateItem", { item, changed, action, id});
 }
