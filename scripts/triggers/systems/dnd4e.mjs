@@ -3,56 +3,19 @@ import { TRIGGERS } from "../../triggers.mjs";
 export default function init() {
   if (game.system.id !== "dnd4e") return;
 
-  // Add D&D 5e system triggers - organized by category
+  // Add D&D 4e system triggers - organized by category
   TRIGGERS.push(
     {
-      label: "EFFECTMACRO.dnd5e.RollTriggers",
+      label: "EFFECTMACRO.dnd4e.triggers",
       options: [
         "dnd5e.rollAttack",
-        "dnd5e.rollDamage",
-        "dnd5e.rollSavingThrow",
-        "dnd5e.rollDeathSave",
-        "dnd5e.rollAbilityCheck",
-        "dnd5e.rollSkill",
-        "dnd5e.rollToolCheck",
-        "dnd5e.rollInitiative",
-        "dnd5e.rollConcentration",
-        "dnd5e.rollHitDie"
-      ]
-    },
-    {
-      label: "EFFECTMACRO.dnd5e.RestTriggers",
-      options: [
-        "dnd5e.shortRest",
-        "dnd5e.longRest"
-      ]
-    },
-    {
-      label: "EFFECTMACRO.dnd5e.ChangeTriggers",
-      options: [
-        "dnd5e.healActor",
-        "dnd5e.damageActor",
-        "dnd5e.beginConcentrating",
-        "dnd5e.endConcentration"
+        "dnd5e.rollDamage"
       ]
     }
   );
 
   Hooks.on("dnd5e.rollAttack", rollAttack);
   Hooks.on("dnd5e.rollDamage", rollDamage);
-  Hooks.on("dnd5e.rollSavingThrow", rollSavingThrow);
-  Hooks.on("dnd5e.rollDeathSave", rollDeathSave);
-  Hooks.on("dnd5e.rollAbilityCheck", rollAbilityCheck);
-  Hooks.on("dnd5e.rollSkill", rollSkill);
-  Hooks.on("dnd5e.rollToolCheck", rollToolCheck);
-  Hooks.on("dnd5e.rollInitiative", rollInitiative);
-  Hooks.on("dnd5e.rollConcentration", rollConcentration);
-  Hooks.on("dnd5e.rollHitDie", rollHitDie);
-  Hooks.on("dnd5e.restCompleted", restCompleted);
-  Hooks.on("dnd5e.healActor", healActor);
-  Hooks.on("dnd5e.damageActor", damageActor);
-  Hooks.on("dnd5e.beginConcentrating", beginConcentrating);
-  Hooks.on("dnd5e.endConcentration", endConcentration);
 }
 
 /* -------------------------------------------------- */
