@@ -1,6 +1,8 @@
 import { TRIGGERS } from "../../triggers.mjs";
 
 export default function init() {
+  debugger;
+
   if (game.system.id !== "dnd4e") return;
 
   // Add D&D 4e system triggers - organized by category
