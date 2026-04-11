@@ -52,8 +52,8 @@
   "dnd4e": {
       "4eTriggers": "4e Triggers",
 
-      "dnd4e.equipItem": "When item is equipped.",
-      "dnd4e.unequipItem": "When item is unequipped.",
+      "equipItem": "When item is equipped.",
+      "unequipItem": "When item is unequipped.",
       "usePower": "When power is used"
     },
 

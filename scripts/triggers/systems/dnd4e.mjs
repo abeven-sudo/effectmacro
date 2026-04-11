@@ -60,11 +60,11 @@ async function usePower(power, data) {
  * @param {Roll[]} rolls    The damage rolls.
  * @param {object} data     Roll configuration data.
  */
-async function equipItem(rolls, data) {
+async function equipItem(item, changed, action, id) {
   debugger;
-  const actor = data.subject?.item?.actor;
-  if (!actor) return;
-  return _executeAppliedEffects(actor, "updateItem", { rolls, data });
+  //const actor = data.subject?.item?.actor;
+  if (!changed.system?.equipped) return;
+  return _executeAppliedEffects(actor, "updateItem", { item, changed, action, id });
 }
 
 
@@ -75,9 +75,9 @@ async function equipItem(rolls, data) {
  * @param {Roll[]} rolls    The damage rolls.
  * @param {object} data     Roll configuration data.
  */
-async function unequipItem(rolls, data) {
+async function unequipItem(item, changed, action, id) {
   debugger;
-  const actor = data.subject?.item?.actor;
-  if (!actor) return;
-  return _executeAppliedEffects(actor, "updateItem", { rolls, data });
+  //const actor = data.subject?.item?.actor;
+  if (changed.system?.equipped) return;
+  return _executeAppliedEffects(actor, "updateItem", { item, changed, action, id});
 }
