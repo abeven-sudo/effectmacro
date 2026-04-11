@@ -52,24 +52,9 @@
   "dnd4e": {
       "4eTriggers": "4e Triggers",
 
-      "usePower": "When power is used",
-      "damageActor": "When the actor receives damage",
-      "endConcentration": "When concentration ends",
-      "healActor": "When the actor is healed",
-      "longRest": "When a long rest is completed",
-      "rollAbilityCheck": "When an ability check is made",
-      "rollAbilitySave": "When a saving throw is made",
-      "rollAbilityTest": "When an ability check is made",
-      "rollAttack": "When an attack roll is made",
-      "rollConcentration": "When a concentration save is made",
-      "rollDamage": "When a damage roll is made",
-      "rollDeathSave": "When a death saving throw is made",
-      "rollHitDie": "When a hit die is rolled",
-      "rollInitiative": "When an initiative roll is made",
-      "rollSavingThrow": "When a saving throw is made",
-      "rollSkill": "When a skill check is made",
-      "rollToolCheck": "When a tool check is made",
-      "shortRest": "When a short rest is completed"
+      "dnd4e.equipItem": "When item is equipped.",
+      "dnd4e.unequipItem": "When item is unequipped.",
+      "usePower": "When power is used"
     },
 
     "DeletePrompt": "Delete this macro?",

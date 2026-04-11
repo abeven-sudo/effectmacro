@@ -11,13 +11,15 @@ export default function init() {
       label: "EFFECTMACRO.dnd4e.4eTriggers",
       options: [
         "dnd4e.usePower",
-        "dnd4e.updateItem"
+        "dnd4e.equipItem",
+        "dnd4e.unequipItem"
       ]
     }
   );
 
   Hooks.on("dnd4e.usePower", usePower);
-  Hooks.on("updateItem", updateItem);
+  Hooks.on("updateItem", equipItem);
+  Hooks.on("updateItem", unequipItem);
 }
 
 /* -------------------------------------------------- */
@@ -58,7 +60,22 @@ async function usePower(power, data) {
  * @param {Roll[]} rolls    The damage rolls.
  * @param {object} data     Roll configuration data.
  */
-async function updateItem(rolls, data) {
+async function equipItem(rolls, data) {
+  debugger;
+  const actor = data.subject?.item?.actor;
+  if (!actor) return;
+  return _executeAppliedEffects(actor, "updateItem", { rolls, data });
+}
+
+
+/* -------------------------------------------------- */
+
+/**
+ * On update of item.
+ * @param {Roll[]} rolls    The damage rolls.
+ * @param {object} data     Roll configuration data.
+ */
+async function unequipItem(rolls, data) {
   debugger;
   const actor = data.subject?.item?.actor;
   if (!actor) return;
