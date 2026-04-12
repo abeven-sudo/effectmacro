@@ -61,7 +61,6 @@ async function usePower(power, data) {
  * @param {object} data     Roll configuration data.
  */
 async function equipItem(item, changed, action, id) {
-  debugger;
   const actor = action.parent;
   if (!changed.system?.equipped) return;
   return _executeAppliedEffects(actor, "dnd4e.equipItem", { item, changed, action, id });
@@ -76,7 +75,6 @@ async function equipItem(item, changed, action, id) {
  * @param {object} data     Roll configuration data.
  */
 async function unequipItem(item, changed, action, id) {
-  debugger;
   const actor = action.parent;
   if (changed.system?.equipped) return;
   return _executeAppliedEffects(actor, "dnd4e.unequipItem", { item, changed, action, id});
