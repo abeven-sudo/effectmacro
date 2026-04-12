@@ -96,7 +96,7 @@ async function unequipItem(item, changed, action, id) {
 async function damaged(actor, changed, action, id) {
 //  const actor = action.parent;
   debugger;
-  if (!action?.dhp > 0) return;
+  if (action?.dhp > 0) return;
   return _executeAppliedEffects(actor, "dnd4e.damaged", { actor, changed, action, id });
 }
 
@@ -111,7 +111,7 @@ async function damaged(actor, changed, action, id) {
 async function healed(actor, changed, action, id) {
 //  const actor = action.parent;
   debugger;
-  if (!action?.dhp < 0) return;
+  if (action?.dhp < 0) return;
   return _executeAppliedEffects(actor, "dnd4e.healed", { actor, changed, action, id });
 }
 
@@ -125,6 +125,6 @@ async function healed(actor, changed, action, id) {
 async function attackRoll(rollDialog) {
   const actor = rollDialog.rollConfig.actor;
   debugger;
-  if (rollDialog.dialogData.data.isAttackRoll) return;
+  if (!rollDialog.dialogData.data.isAttackRoll) return;
   return _executeAppliedEffects(actor, "dnd4e.attackRoll", { rollDialog });
 }
