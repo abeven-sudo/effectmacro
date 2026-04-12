@@ -12,7 +12,10 @@ export default function init() {
       options: [
         "dnd4e.usePower",
         "dnd4e.equipItem",
-        "dnd4e.unequipItem"
+        "dnd4e.unequipItem",
+        "dnd4e.damaged",
+        "dnd4e.healed",
+        "dnd4e.attackRoll"
       ]
     }
   );
@@ -20,6 +23,9 @@ export default function init() {
   Hooks.on("dnd4e.usePower", usePower);
   Hooks.on("updateItem", equipItem);
   Hooks.on("updateItem", unequipItem);
+  Hooks.on("updateActor", damaged);
+  Hooks.on("updateActor", healed);
+  Hooks.on("closeRollDialog", attackRoll);
 }
 
 /* -------------------------------------------------- */
@@ -56,7 +62,7 @@ async function usePower(power, data) {
 /* -------------------------------------------------- */
 
 /**
- * On update of item.
+ * On update of item, and item is equipped.
  * @param {Roll[]} rolls    The damage rolls.
  * @param {object} data     Roll configuration data.
  */
@@ -70,7 +76,7 @@ async function equipItem(item, changed, action, id) {
 /* -------------------------------------------------- */
 
 /**
- * On update of item.
+ * On update of item, and item is unequipped.
  * @param {Roll[]} rolls    The damage rolls.
  * @param {object} data     Roll configuration data.
  */
@@ -78,4 +84,47 @@ async function unequipItem(item, changed, action, id) {
   const actor = action.parent;
   if (changed.system?.equipped) return;
   return _executeAppliedEffects(actor, "dnd4e.unequipItem", { item, changed, action, id});
+}
+
+/* -------------------------------------------------- */
+
+/**
+ * On update of Actor, and the Actor is damaged.
+ * @param {Roll[]} rolls    The damage rolls.
+ * @param {object} data     Roll configuration data.
+ */
+async function damaged(actor, changed, action, id) {
+//  const actor = action.parent;
+  debugger;
+  if (!action?.dhp > 0) return;
+  return _executeAppliedEffects(actor, "dnd4e.damaged", { actor, changed, action, id });
+}
+
+
+/* -------------------------------------------------- */
+
+/**
+ * On update of Actor, and the Actor is healed.
+ * @param {Roll[]} rolls    The damage rolls.
+ * @param {object} data     Roll configuration data.
+ */
+async function healed(actor, changed, action, id) {
+//  const actor = action.parent;
+  debugger;
+  if (!action?.dhp < 0) return;
+  return _executeAppliedEffects(actor, "dnd4e.healed", { actor, changed, action, id });
+}
+
+/* -------------------------------------------------- */
+
+/**
+ * On closing of a Roll Dialog, check if that roll was an attack roll.
+ * @param {Roll[]} rolls    The damage rolls.
+ * @param {object} data     Roll configuration data.
+ */
+async function attackRoll(rollDialog) {
+  const actor = rollDialog.rollConfig.actor;
+  debugger;
+  if (rollDialog.dialogData.data.isAttackRoll) return;
+  return _executeAppliedEffects(actor, "dnd4e.attackRoll", { rollDialog });
 }

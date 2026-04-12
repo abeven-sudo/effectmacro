@@ -54,7 +54,10 @@
 
       "equipItem": "When item is equipped.",
       "unequipItem": "When item is unequipped.",
-      "usePower": "When power is used"
+      "usePower": "When power is used",
+      "damaged": "When an Actor takes damage",
+      "healed": "When an Actor is healed",
+      "attackRoll": "When an Attack Roll is made"
     },
 
     "DeletePrompt": "Delete this macro?",
